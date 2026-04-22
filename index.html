@@ -98,6 +98,19 @@
     img { max-width:100%; display:block; }
     a { text-decoration:none; color:inherit; }
     ul { list-style:none; }
+    .icon {
+      width:1em; height:1em;
+      display:block; flex-shrink:0;
+      fill:none; stroke:currentColor;
+      stroke-width:1.9;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+    .sr-only {
+      position:absolute; width:1px; height:1px;
+      padding:0; margin:-1px; overflow:hidden;
+      clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
 
     /* ═══════════════════════════════════════
        SKIP TO CONTENT (a11y)
@@ -342,7 +355,7 @@
     }
     .mission-bg {
       position:absolute; inset:0;
-      background:url('image.jpg') center/cover no-repeat;
+      background:url('comm-intervention.jpeg') center/cover no-repeat;
       opacity:.07;
       filter:grayscale(100%);
     }
@@ -392,8 +405,9 @@
       width:52px; height:52px; margin-bottom:1.5rem;
       background:rgba(200,146,42,.15); border-radius:8px;
       display:flex; align-items:center; justify-content:center;
-      font-size:1.5rem;
+      color:var(--gold-lt);
     }
+    .mvv-icon .icon { width:1.45rem; height:1.45rem; }
     .mvv-card h3 {
       font-family:var(--font-display); font-size:1.6rem;
       font-weight:600; color:var(--white); margin-bottom:1rem;
@@ -408,7 +422,7 @@
     ═══════════════════════════════════════ */
     #impact {
       position:relative; padding:6rem 0;
-      background:url('image.jpg') center/cover no-repeat fixed;
+      background:url('preshol-hero4.jpeg') center/cover no-repeat fixed;
       overflow:hidden;
     }
     .impact-overlay {
@@ -496,7 +510,7 @@
     }
     .program-card-img {
       height:220px; overflow:hidden;
-      background:url('image.jpg') center/cover no-repeat;
+      background:url('comm-intervention.jpeg') center/cover no-repeat;
       position:relative;
       flex-shrink:0;
       transition:transform .5s;
@@ -539,12 +553,164 @@
     /* Program color accents */
     .program-card:nth-child(1) .program-card-img { filter:brightness(.9); }
     .program-card:nth-child(2) .program-card-img { filter:brightness(.9) hue-rotate(10deg); }
-    .program-card:nth-child(3) .program-card-img { filter:brightness(.9) hue-rotate(180deg) saturate(.8); }
+    .program-card:nth-child(3) .program-card-img { filter:brightness(.95) saturate(1.04) contrast(1.02); }
     .program-card:nth-child(4) .program-card-img { filter:brightness(.9) hue-rotate(30deg); }
 
     /* ═══════════════════════════════════════
        GLOBAL FOOTPRINT
     ═══════════════════════════════════════ */
+    /* SDG alignment */
+    #sdg {
+      padding:7rem 0;
+      background:
+        radial-gradient(circle at top left, rgba(200,146,42,.14), transparent 32%),
+        linear-gradient(180deg, var(--cream2) 0%, var(--cream) 100%);
+    }
+    .sdg-layout {
+      display:grid; grid-template-columns:1fr 1.18fr;
+      gap:3rem; align-items:start;
+    }
+    .sdg-intro {
+      position:sticky; top:96px;
+    }
+    .sdg-intro h2 {
+      font-family:var(--font-display);
+      font-size:clamp(2.2rem,4.3vw,4rem);
+      font-weight:600; line-height:1.08;
+      margin-bottom:1.25rem;
+    }
+    .sdg-intro h2 em { color:var(--gold); font-style:italic; }
+    .sdg-lead {
+      font-size:1.05rem; line-height:1.85;
+      color:var(--ink); margin-bottom:1.15rem;
+      max-width:33rem;
+    }
+    .sdg-copy {
+      color:var(--muted); font-weight:300;
+      line-height:1.85; max-width:35rem;
+    }
+    .sdg-visual {
+      margin:1.8rem 0 2rem;
+      position:relative;
+      overflow:hidden;
+      border:1.5px solid rgba(11,42,26,.08);
+      box-shadow:0 20px 50px rgba(17,24,16,.08);
+      background:var(--white);
+    }
+    .sdg-visual img {
+      width:100%; height:320px;
+      object-fit:cover; object-position:center 28%;
+    }
+    .sdg-visual::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(11,42,26,.08) 0%, rgba(11,42,26,.56) 100%);
+    }
+    .sdg-visual-badge {
+      position:absolute; top:1rem; right:1rem; z-index:1;
+      display:inline-flex; align-items:center; gap:.45rem;
+      background:rgba(11,42,26,.84);
+      color:var(--gold-lt);
+      padding:.5rem .85rem;
+      border:1px solid rgba(255,255,255,.08);
+      font-family:var(--font-mono); font-size:.58rem;
+      letter-spacing:.16em; text-transform:uppercase;
+    }
+    .sdg-visual-badge .icon { width:.85rem; height:.85rem; }
+    .sdg-visual-copy {
+      position:absolute; left:1rem; bottom:1rem; z-index:1;
+      max-width:18rem;
+      color:var(--white);
+    }
+    .sdg-visual-copy strong {
+      display:block;
+      font-family:var(--font-display);
+      font-size:1.45rem;
+      line-height:1.05;
+      margin-bottom:.35rem;
+    }
+    .sdg-visual-copy span {
+      font-size:.78rem;
+      line-height:1.55;
+      color:rgba(255,255,255,.82);
+    }
+    .sdg-rail {
+      margin-top:2rem; padding:1.5rem;
+      background:rgba(255,255,255,.72);
+      border:1.5px solid rgba(11,42,26,.08);
+      box-shadow:0 16px 40px rgba(17,24,16,.06);
+    }
+    .sdg-pill-row {
+      display:flex; flex-wrap:wrap; gap:.65rem;
+      margin-bottom:1rem;
+    }
+    .sdg-pill {
+      font-family:var(--font-mono); font-size:.62rem;
+      letter-spacing:.18em; text-transform:uppercase;
+      color:var(--forest); padding:.45rem .8rem;
+      background:rgba(200,146,42,.14);
+      border:1px solid rgba(200,146,42,.18);
+      border-radius:999px;
+    }
+    .sdg-note {
+      color:var(--muted); font-size:.92rem;
+      line-height:1.75;
+    }
+    .sdg-grid {
+      display:grid; grid-template-columns:repeat(2,1fr);
+      gap:1.25rem;
+    }
+    .sdg-card {
+      background:var(--white);
+      border:1.5px solid rgba(17,24,16,.08);
+      padding:2rem;
+      box-shadow:0 18px 45px rgba(17,24,16,.06);
+      position:relative; overflow:hidden;
+      min-height:100%;
+    }
+    .sdg-card::before {
+      content:''; position:absolute; inset:0 auto 0 0;
+      width:4px; background:var(--sdg-accent, var(--gold));
+    }
+    .sdg-card-tag {
+      display:inline-flex; align-items:center; gap:.45rem;
+      font-family:var(--font-mono); font-size:.62rem;
+      letter-spacing:.18em; text-transform:uppercase;
+      color:var(--sdg-accent, var(--gold));
+      margin-bottom:.95rem;
+    }
+    .sdg-card-tag .icon { width:.92rem; height:.92rem; }
+    .sdg-card h3 {
+      font-family:var(--font-display);
+      font-size:1.8rem; font-weight:600;
+      line-height:1.12; margin-bottom:.9rem;
+    }
+    .sdg-card p {
+      color:var(--muted); font-size:.94rem;
+      line-height:1.8; font-weight:300;
+    }
+    .sdg-points {
+      margin:1.2rem 0 1.1rem;
+      display:grid; gap:.7rem;
+    }
+    .sdg-points li {
+      position:relative; padding-left:1.15rem;
+      color:var(--ink); line-height:1.65;
+    }
+    .sdg-points li::before {
+      content:''; position:absolute; left:0; top:.72rem;
+      width:7px; height:7px; border-radius:50%;
+      background:var(--sdg-accent, var(--gold));
+    }
+    .sdg-card-close {
+      margin-top:1rem; padding-top:1rem;
+      border-top:1px solid rgba(17,24,16,.08);
+      color:var(--forest); font-weight:500;
+    }
+    .sdg-card-health { --sdg-accent:#2f7a4f; }
+    .sdg-card-education { --sdg-accent:#b84c2e; }
+    .sdg-card-equity { --sdg-accent:#7b5a25; }
+    .sdg-card-partnership { --sdg-accent:#2e5f8a; }
+
     #footprint { padding:7rem 0; background:var(--cream2); }
     .footprint-inner {
       display:grid; grid-template-columns:1.1fr 1fr;
@@ -569,7 +735,7 @@
       position:relative;
     }
     .map-placeholder {
-      background:url('image.jpg') center/cover no-repeat;
+      background:url('africa map.jpg') center/cover no-repeat;
       min-height:320px; position:relative;
     }
     .map-placeholder-overlay {
@@ -578,7 +744,15 @@
       display:flex; align-items:center; justify-content:center;
       flex-direction:column; gap:.5rem;
     }
-    .map-globe { font-size:4rem; }
+    .map-globe {
+      width:5rem; height:5rem;
+      border-radius:50%;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.14);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold-lt);
+    }
+    .map-globe .icon { width:2.15rem; height:2.15rem; }
     .map-label {
       font-family:var(--font-mono); font-size:.65rem;
       letter-spacing:.2em; color:var(--gold-lt);
@@ -599,7 +773,15 @@
     }
     .country-item:last-child { border-bottom:none; }
     .country-item:hover { background:rgba(200,146,42,.07); }
-    .country-flag { font-size:1.5rem; }
+    .country-flag {
+      width:2.5rem; height:2.5rem;
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      background:rgba(200,146,42,.12);
+      color:var(--gold);
+      border:1px solid rgba(200,146,42,.24);
+    }
+    .country-flag .icon { width:1rem; height:1rem; }
     .country-info h4 {
       font-weight:600; font-size:.9rem; margin-bottom:.15rem;
     }
@@ -633,11 +815,16 @@
       margin-bottom:2.5rem;
     }
     .filter-btn {
+      display:inline-flex; align-items:center; gap:.45rem;
       font-family:var(--font-mono); font-size:.65rem;
       letter-spacing:.15em; text-transform:uppercase;
       padding:.4rem 1rem; border:1.5px solid rgba(255,255,255,.2);
       color:rgba(255,255,255,.5); background:none; cursor:pointer;
       border-radius:3px; transition:all .25s;
+    }
+    .filter-btn .icon,
+    .gallery-item-tag .icon {
+      width:.82rem; height:.82rem;
     }
     .filter-btn.active,
     .filter-btn:hover {
@@ -672,6 +859,7 @@
       font-weight:400; line-height:1.4;
     }
     .gallery-item-tag {
+      display:inline-flex; align-items:center; gap:.4rem;
       font-family:var(--font-mono); font-size:.58rem;
       letter-spacing:.15em; color:var(--gold-lt);
       text-transform:uppercase; margin-bottom:.3rem;
@@ -762,16 +950,18 @@
     }
     .testi-avatar {
       width:48px; height:48px; border-radius:50%;
-      background:url('image.jpg') center/cover no-repeat;
+      background:url('logo.png') center/70% no-repeat, var(--white);
       flex-shrink:0;
     }
     .testi-person h4 { font-weight:600; font-size:.9rem; }
     .testi-person p { font-size:.78rem; color:var(--muted); }
     .testi-country {
+      display:inline-flex; align-items:center; gap:.35rem;
       font-family:var(--font-mono); font-size:.6rem;
       letter-spacing:.15em; color:var(--gold);
       text-transform:uppercase;
     }
+    .testi-country .icon { width:.78rem; height:.78rem; }
 
     .testi-controls {
       display:flex; justify-content:center;
@@ -821,7 +1011,15 @@
       transition:transform .2s, box-shadow .2s;
     }
     .what-item:hover { transform:translateX(4px); box-shadow:4px 0 24px rgba(200,146,42,.1); }
-    .what-icon { font-size:1.4rem; padding-top:.1rem; }
+    .what-icon {
+      width:2.35rem; height:2.35rem;
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      background:rgba(200,146,42,.14);
+      color:var(--gold);
+      margin-top:.1rem;
+    }
+    .what-icon .icon { width:1rem; height:1rem; }
     .what-item h4 { font-weight:600; font-size:.95rem; margin-bottom:.3rem; }
     .what-item p { font-size:.85rem; color:var(--muted); font-weight:300; line-height:1.6; }
 
@@ -830,8 +1028,9 @@
     }
     .whatwedo-img {
       width:100%; height:480px;
-      background:url('image.jpg') center/cover no-repeat;
+      background:url('comm-intervention.jpeg') center 35%/cover no-repeat;
       position:relative;
+      border:2px solid var(--ink);
     }
     .whatwedo-img::before {
       content:''; position:absolute; inset:0;
@@ -842,6 +1041,17 @@
       background:var(--forest); color:var(--white);
       padding:1.5rem 2rem;
       border:3px solid var(--gold);
+    }
+    .whatwedo-badge-top {
+      display:inline-flex; align-items:center; gap:.45rem;
+      margin-bottom:.45rem;
+      font-family:var(--font-mono); font-size:.56rem;
+      letter-spacing:.16em; text-transform:uppercase;
+      color:rgba(255,255,255,.66);
+    }
+    .whatwedo-badge-top .icon {
+      width:.82rem; height:.82rem;
+      color:var(--gold-lt);
     }
     .whatwedo-badge .num {
       font-family:var(--font-display); font-size:3rem;
@@ -862,7 +1072,7 @@
       min-height:680px;
     }
     .contact-image {
-      background:url('image.jpg') center/cover no-repeat;
+      background:url('mental-health.jpeg') center 25%/cover no-repeat;
       position:relative;
     }
     .contact-image-overlay {
@@ -1035,8 +1245,11 @@
     ═══════════════════════════════════════ */
     @media (max-width:1024px) {
       .programs-header,
+      .sdg-layout,
       .footprint-inner { grid-template-columns:1fr; gap:3rem; }
       .programs-grid { grid-template-columns:1fr 1fr; }
+      .sdg-intro { position:static; }
+      .sdg-grid { grid-template-columns:1fr 1fr; }
       .stats-row { grid-template-columns:repeat(2,1fr); }
       .footer-top { grid-template-columns:1fr 1fr; gap:2rem; }
       .gallery-grid { columns:3; }
@@ -1049,6 +1262,7 @@
       .hamburger { display:flex; }
       .programs-grid { grid-template-columns:1fr; }
       .mvv-grid { grid-template-columns:1fr; }
+      .sdg-grid { grid-template-columns:1fr; }
       .contact-wrap { grid-template-columns:1fr; }
       .contact-image { min-height:280px; }
       .gallery-grid { columns:2; }
@@ -1067,6 +1281,56 @@
 
 <!-- ── SKIP LINK (a11y) ── -->
 <a href="#main" class="skip-link">Skip to main content</a>
+
+<svg aria-hidden="true" style="position:absolute; width:0; height:0; overflow:hidden">
+  <symbol id="icon-target" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8"></circle>
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22"></path>
+  </symbol>
+  <symbol id="icon-globe" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"></circle>
+    <path d="M3 12h18M12 3a13 13 0 0 1 0 18M12 3a13 13 0 0 0 0 18"></path>
+    <path d="M5 7.5h14M5 16.5h14"></path>
+  </symbol>
+  <symbol id="icon-heart" viewBox="0 0 24 24">
+    <path d="M12 20.5s-7-4.35-9.23-8.3C.26 7.77 3.02 4 6.73 4c2.09 0 4.03 1.16 5.27 3.01C13.24 5.16 15.18 4 17.27 4c3.71 0 6.47 3.77 3.96 8.2C19 16.15 12 20.5 12 20.5Z"></path>
+  </symbol>
+  <symbol id="icon-map-pin" viewBox="0 0 24 24">
+    <path d="M12 21s6-5.58 6-11a6 6 0 1 0-12 0c0 5.42 6 11 6 11Z"></path>
+    <circle cx="12" cy="10" r="2.2"></circle>
+  </symbol>
+  <symbol id="icon-mic" viewBox="0 0 24 24">
+    <rect x="9" y="3" width="6" height="11" rx="3"></rect>
+    <path d="M6.5 11a5.5 5.5 0 0 0 11 0M12 16.5V21M9 21h6"></path>
+  </symbol>
+  <symbol id="icon-brain" viewBox="0 0 24 24">
+    <path d="M9.5 4A3.5 3.5 0 0 0 6 7.5c0 .47.1.92.27 1.33A4.3 4.3 0 0 0 4 12.6c0 2.04 1.42 3.76 3.33 4.21A3.25 3.25 0 0 0 12 19.2a3.25 3.25 0 0 0 4.67-2.39A4.29 4.29 0 0 0 20 12.6a4.3 4.3 0 0 0-2.27-3.77c.17-.41.27-.86.27-1.33A3.5 3.5 0 0 0 14.5 4c-.99 0-1.88.41-2.5 1.08A3.48 3.48 0 0 0 9.5 4Z"></path>
+    <path d="M9 9.5c.75.45 1.2 1.28 1.2 2.18v1.7M15 9.5c-.75.45-1.2 1.28-1.2 2.18v1.7"></path>
+  </symbol>
+  <symbol id="icon-cap" viewBox="0 0 24 24">
+    <path d="M3 9.5 12 5l9 4.5-9 4.5L3 9.5Z"></path>
+    <path d="M7 11.5v3.2c0 1.5 2.46 2.8 5 2.8s5-1.3 5-2.8v-3.2"></path>
+  </symbol>
+  <symbol id="icon-scales" viewBox="0 0 24 24">
+    <path d="M12 4v16M7 4h10M5 8l-3 5h6L5 8ZM19 8l-3 5h6l-3-5ZM8 20h8"></path>
+  </symbol>
+  <symbol id="icon-handshake" viewBox="0 0 24 24">
+    <path d="M9 11 6.8 8.8a2.2 2.2 0 0 0-3.11 0L2 10.49a2.2 2.2 0 0 0 0 3.11l4.4 4.4a2.2 2.2 0 0 0 3.11 0L11 16.51"></path>
+    <path d="m15 13 2.2 2.2a2.2 2.2 0 0 0 3.11 0L22 13.51a2.2 2.2 0 0 0 0-3.11l-4.4-4.4a2.2 2.2 0 0 0-3.11 0L13 7.49"></path>
+    <path d="m8.5 12.5 2.2 2.2a1.8 1.8 0 0 0 2.55 0l4.25-4.25"></path>
+  </symbol>
+  <symbol id="icon-network" viewBox="0 0 24 24">
+    <circle cx="12" cy="5" r="2"></circle>
+    <circle cx="5" cy="18" r="2"></circle>
+    <circle cx="19" cy="18" r="2"></circle>
+    <path d="M12 7v5M12 12l-5 4M12 12l5 4"></path>
+  </symbol>
+  <symbol id="icon-plane" viewBox="0 0 24 24">
+    <path d="M21 3 10 14"></path>
+    <path d="m21 3-7 18-3.5-7.5L3 10l18-7Z"></path>
+  </symbol>
+</svg>
 
 <!-- ════════════════════════════════════
      NAVIGATION
@@ -1109,7 +1373,7 @@
 <main id="main">
 <section id="hero" aria-label="Hero — Preshol Global">
 
-  <!-- Background slides — using image.jpg tinted via CSS classes -->
+  <!-- Background slides using local photo assets -->
   <div class="hero-slides" aria-hidden="true">
     <div class="hero-slide active" style="background-image:url('preshol-hero4.jpeg'); background-position:center top;"></div>
     <div class="hero-slide" style="background-image:url('preshol-hero1.jpeg'); background-position:center 30%;"></div>
@@ -1175,17 +1439,23 @@
 
     <div class="mvv-grid reveal">
       <article class="mvv-card">
-        <div class="mvv-icon" aria-hidden="true">🎯</div>
+        <div class="mvv-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><use href="#icon-target"></use></svg>
+        </div>
         <h3>Our Mission</h3>
         <p>To restore hope, strengthen mental wellbeing, and create pathways for individuals — especially young people — to thrive locally and globally. </p>
       </article>
       <article class="mvv-card">
-        <div class="mvv-icon" aria-hidden="true">🌍</div>
+        <div class="mvv-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><use href="#icon-globe"></use></svg>
+        </div>
         <h3>Our Vision</h3>
         <p>A world where mental wellness is prioritised, vulnerable communities are supported through sustainable mission interventions, and individuals are equipped to access life-changing global opportunities.</p>
       </article>
       <article class="mvv-card">
-        <div class="mvv-icon" aria-hidden="true">💛</div>
+        <div class="mvv-icon" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24"><use href="#icon-heart"></use></svg>
+        </div>
         <h3>Our Values</h3>
         <p>Compassion. Excellence. Courage. We envision a generation of mentally resilient, purpose-aligned leaders transforming communities and shaping nations.</p>
       </article>
@@ -1204,21 +1474,21 @@
     <span class="section-tag">Our Impact</span>
     <h2 class="impact-title reveal" id="impact-heading">Numbers That Tell a Story</h2>
     <p class="impact-sub reveal">
-      From West Africa to East and Southern Africa — each outreach represents
-      restored hope, strengthened minds, and empowered communities.
+      Across 7 countries in Africa, each outreach represents restored hope,
+      strengthened minds, and thousands of lives empowered for sustainable growth.
     </p>
     <div class="stats-row reveal">
       <div class="stat-item">
         <div class="stat-num" data-target="7">0</div>
-        <div class="stat-label">Countries Reached</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num" data-target="15">0</div>
-        <div class="stat-label">Mission Trips</div>
+        <div class="stat-label">Countries</div>
       </div>
       <div class="stat-item">
         <div class="stat-num" data-target="1500" data-suffix="+">0</div>
         <div class="stat-label">Lives Impacted</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="15">0</div>
+        <div class="stat-label">Mission Trips</div>
       </div>
       <div class="stat-item">
         <div class="stat-num" data-target="4">0</div>
@@ -1282,7 +1552,7 @@
       </article>
 
       <article class="program-card reveal">
-        <div class="program-card-img" role="img" aria-label="Global Pathway Guidance — international education and professional growth" style="background-image:url('correction.jpg')">
+        <div class="program-card-img" role="img" aria-label="Global Pathway Guidance — international education and professional growth" style="background-image:url('global-pathway.jpeg'); background-position:center 22%;">
           <div class="program-card-img-overlay" aria-hidden="true"></div>
         </div>
         <div class="program-card-body">
@@ -1327,17 +1597,19 @@
 
       <div class="reveal-left">
         <span class="section-tag">Global Footprint</span>
-        <h2 id="footprint-heading">Our Impact Spans<br><em>Borders &amp; Nations</em></h2>
+        <h2 id="footprint-heading">Our Impact Spans<br><em>7 Countries Across Africa</em></h2>
         <p>
-          From West Africa to East and Southern Africa, each outreach represents
+          Thousands of lives impacted and still counting. Each outreach represents
           restored hope, strengthened minds, and communities empowered for sustainable growth.
-          Seven countries. Fifteen missions. One unshakeable purpose.
+          Seven countries,thousands of lives impacted and still counting.
         </p>
         <div class="map-visual">
           <div class="map-placeholder" role="img" aria-label="Map of Africa showing countries where Preshol Global operates">
-            <div style="background-image:url('africa\ map.jpg'); width:100%; height:320px; background-size:cover; background-position:center;"></div>
+            <div style="background-image:url('africa map.jpg'); width:100%; height:320px; background-size:cover; background-position:center;"></div>
             <div class="map-placeholder-overlay" aria-hidden="true">
-              <div class="map-globe">🌍</div>
+              <div class="map-globe">
+                <svg class="icon" viewBox="0 0 24 24"><use href="#icon-globe"></use></svg>
+              </div>
               <div class="map-label">7 Countries · 5 Continents Touched</div>
             </div>
           </div>
@@ -1347,7 +1619,7 @@
       <div class="reveal-right">
         <nav class="country-list" aria-label="Countries where Preshol Global operates">
           <div class="country-item">
-            <span class="country-flag" aria-hidden="true">🇳🇬</span>
+            <span class="country-flag" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-map-pin"></use></svg></span>
             <div class="country-info">
               <h4>Nigeria</h4>
               <p>Missions across 5 Geo-political zones in underserved communities</p>
@@ -1355,7 +1627,7 @@
             <span class="country-trips">Multiple</span>
           </div>
           <div class="country-item">
-            <span class="country-flag" aria-hidden="true">🇬🇭</span>
+            <span class="country-flag" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-map-pin"></use></svg></span>
             <div class="country-info">
               <h4>Ghana</h4>
               <p>Dabala Community, Volta Region</p>
@@ -1363,7 +1635,7 @@
             <span class="country-trips">Mission</span>
           </div>
           <div class="country-item">
-            <span class="country-flag" aria-hidden="true">🇨🇮</span>
+            <span class="country-flag" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-map-pin"></use></svg></span>
             <div class="country-info">
               <h4>Côte d'Ivoire</h4>
               <p>Bondoukou Community</p>
@@ -1371,7 +1643,7 @@
             <span class="country-trips">Mission</span>
           </div>
           <div class="country-item">
-            <span class="country-flag" aria-hidden="true">🇳🇪</span>
+            <span class="country-flag" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-map-pin"></use></svg></span>
             <div class="country-info">
               <h4>Niger</h4>
               <p>Niamey Deux Mille Community</p>
@@ -1379,7 +1651,7 @@
             <span class="country-trips">Mission</span>
           </div>
           <div class="country-item">
-            <span class="country-flag" aria-hidden="true">🇺🇬</span>
+            <span class="country-flag" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-map-pin"></use></svg></span>
             <div class="country-info">
               <h4>Uganda</h4>
               <p>Kabale &amp; Rubirizi Districts</p>
@@ -1387,7 +1659,7 @@
             <span class="country-trips">Mission</span>
           </div>
           <div class="country-item">
-            <span class="country-flag" aria-hidden="true">🇧🇯</span>
+            <span class="country-flag" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-map-pin"></use></svg></span>
             <div class="country-info">
               <h4>Benin</h4>
               <p>Community mission interventions</p>
@@ -1395,7 +1667,7 @@
             <span class="country-trips">Mission</span>
           </div>
           <div class="country-item">
-            <span class="country-flag" aria-hidden="true">🇿🇼</span>
+            <span class="country-flag" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><use href="#icon-map-pin"></use></svg></span>
             <div class="country-info">
               <h4>Zimbabwe</h4>
               <p>Outreach and advocacy programs</p>
@@ -1422,12 +1694,12 @@
 
     <div class="gallery-filters reveal" role="tablist" aria-label="Gallery filters">
       <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
-      <button class="filter-btn" data-filter="nigeria" role="tab" aria-selected="false">🇳🇬 Nigeria</button>
-      <button class="filter-btn" data-filter="ghana" role="tab" aria-selected="false">🇬🇭 Ghana</button>
-      <button class="filter-btn" data-filter="ivoire" role="tab" aria-selected="false">🇨🇮 Côte d'Ivoire</button>
-      <button class="filter-btn" data-filter="niger" role="tab" aria-selected="false">🇳🇪 Niger</button>
-      <button class="filter-btn" data-filter="uganda" role="tab" aria-selected="false">🇺🇬 Uganda</button>
-      <button class="filter-btn" data-filter="events" role="tab" aria-selected="false">🎤 Events</button>
+      <button class="filter-btn" data-filter="nigeria" role="tab" aria-selected="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Nigeria</button>
+      <button class="filter-btn" data-filter="ghana" role="tab" aria-selected="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Ghana</button>
+      <button class="filter-btn" data-filter="ivoire" role="tab" aria-selected="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Côte d'Ivoire</button>
+      <button class="filter-btn" data-filter="niger" role="tab" aria-selected="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Niger</button>
+      <button class="filter-btn" data-filter="uganda" role="tab" aria-selected="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Uganda</button>
+      <button class="filter-btn" data-filter="events" role="tab" aria-selected="false"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-mic"></use></svg> Events</button>
     </div>
 
     <div class="gallery-grid" id="galleryGrid">
@@ -1435,84 +1707,84 @@
       <figure class="gallery-item tall" data-country="nigeria" data-caption="Community Outreach — Meeting families in underserved Northern communities, Nigeria">
         <img src="preshol-gallery1.jpeg" alt="Preshol Global community outreach in Northern Nigeria" loading="lazy">
         <figcaption class="gallery-item-overlay">
-          <p class="gallery-item-tag">🇳🇬 Nigeria</p>
+          <p class="gallery-item-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Nigeria</p>
           <p class="gallery-item-caption">Community Outreach — Northern Zone</p>
         </figcaption>
       </figure>
       <figure class="gallery-item short" data-country="nigeria" data-caption="Mental health talk at a local secondary school, Nigeria">
         <img src="preshol-gallery2.jpeg" alt="School engagement session for mental health awareness in Nigeria" loading="lazy">
         <figcaption class="gallery-item-overlay">
-          <p class="gallery-item-tag">🇳🇬 Nigeria</p>
+          <p class="gallery-item-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Nigeria</p>
           <p class="gallery-item-caption">School Engagement Session</p>
         </figcaption>
       </figure>
       <figure class="gallery-item med" data-country="ghana" data-caption="Arriving in the Volta Region for community mission, Ghana">
         <img src="preshol-gallery3.jpeg" alt="Preshol Global team arriving in Dabala, Volta Region Ghana" loading="lazy">
         <figcaption class="gallery-item-overlay">
-          <p class="gallery-item-tag">🇬🇭 Ghana</p>
+          <p class="gallery-item-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Ghana</p>
           <p class="gallery-item-caption">Dabala Community Arrival</p>
         </figcaption>
       </figure>
       <figure class="gallery-item tall" data-country="uganda" data-caption="Community mission in the hills of Kabale, Uganda">
         <img src="preshol-gallery4.jpeg" alt="Community outreach in Kabale District, Uganda" loading="lazy">
         <figcaption class="gallery-item-overlay">
-          <p class="gallery-item-tag">🇺🇬 Uganda</p>
+          <p class="gallery-item-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Uganda</p>
           <p class="gallery-item-caption">Kabale District Outreach</p>
         </figcaption>
       </figure>
       <figure class="gallery-item short" data-country="nigeria" data-caption="Distributing educational and welfare materials, Nigeria">
         <img src="preshol-gallery5.jpeg" alt="Resource distribution during Preshol Global Nigeria mission" loading="lazy">
         <figcaption class="gallery-item-overlay">
-          <p class="gallery-item-tag">🇳🇬 Nigeria</p>
+          <p class="gallery-item-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Nigeria</p>
           <p class="gallery-item-caption">Resource Distribution</p>
         </figcaption>
       </figure>
       <figure class="gallery-item med" data-country="events" data-caption="One of 4 strategic conferences hosted by Preshol Global">
         <img src="preshol-gallery6.jpeg" alt="Preshol Global conference main stage" loading="lazy">
         <figcaption class="gallery-item-overlay">
-          <p class="gallery-item-tag">🎤 Conference</p>
+          <p class="gallery-item-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-mic"></use></svg> Conference</p>
           <p class="gallery-item-caption">Conference Hall — Main Stage</p>
         </figcaption>
       </figure>
       <figure class="gallery-item short" data-country="ghana" data-caption="Children participating in educational activities, Dabala Ghana">
         <img src="preshol-gallery7.jpeg" alt="Children's educational activity during Ghana mission" loading="lazy">
         <figcaption class="gallery-item-overlay">
-          <p class="gallery-item-tag">🇬🇭 Ghana</p>
+          <p class="gallery-item-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Ghana</p>
           <p class="gallery-item-caption">Children's Engagement Activity</p>
         </figcaption>
       </figure>
       <figure class="gallery-item tall" data-country="nigeria" data-caption="The Preshol Global team after a successful outreach day, Nigeria">
         <img src="preshol-gallery8.jpeg" alt="Preshol Global team group photo after Nigeria outreach" loading="lazy">
         <figcaption class="gallery-item-overlay">
-          <p class="gallery-item-tag">🇳🇬 Nigeria</p>
+          <p class="gallery-item-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Nigeria</p>
           <p class="gallery-item-caption">Team Group Photo — Nigeria</p>
         </figcaption>
       </figure>
       <figure class="gallery-item med" data-country="ivoire" data-caption="Being received warmly by the Bondoukou community, Côte d'Ivoire">
         <img src="preshol-gallery9.jpeg" alt="Warm community welcome in Bondoukou, Côte d'Ivoire" loading="lazy">
         <figcaption class="gallery-item-overlay">
-          <p class="gallery-item-tag">🇨🇮 Côte d'Ivoire</p>
+          <p class="gallery-item-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Côte d'Ivoire</p>
           <p class="gallery-item-caption">Bondoukou Community Welcome</p>
         </figcaption>
       </figure>
       <figure class="gallery-item short" data-country="niger" data-caption="Outreach location in Niamey Deux Mille community, Niger">
         <img src="preshol-gallery10.jpeg" alt="Mission site in Niamey Deux Mille, Niger" loading="lazy">
         <figcaption class="gallery-item-overlay">
-          <p class="gallery-item-tag">🇳🇪 Niger</p>
+          <p class="gallery-item-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Niger</p>
           <p class="gallery-item-caption">Niamey Mission Site</p>
         </figcaption>
       </figure>
       <figure class="gallery-item med" data-country="events" data-caption="Thought leadership on mental health and global opportunity">
         <img src="preshol-gallery11.jpeg" alt="Keynote speaker moment at Preshol Global symposium" loading="lazy">
         <figcaption class="gallery-item-overlay">
-          <p class="gallery-item-tag">🎤 Conference</p>
+          <p class="gallery-item-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-mic"></use></svg> Conference</p>
           <p class="gallery-item-caption">Keynote Speaker Moment</p>
         </figcaption>
       </figure>
       <figure class="gallery-item tall" data-country="uganda" data-caption="Empowering the Rubirizi community with holistic support, Uganda">
         <img src="preshol-gallery12.jpeg" alt="Community meeting in Rubirizi District, Uganda" loading="lazy">
         <figcaption class="gallery-item-overlay">
-          <p class="gallery-item-tag">🇺🇬 Uganda</p>
+          <p class="gallery-item-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Uganda</p>
           <p class="gallery-item-caption">Rubirizi Community Meeting</p>
         </figcaption>
       </figure>
@@ -1551,7 +1823,7 @@
             <div class="testi-avatar" role="img" aria-label="Portrait of community member"></div>
             <div>
               <h4>Community Member</h4>
-              <p class="testi-country">🇳🇬 Nigeria Mission</p>
+              <p class="testi-country"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Nigeria Mission</p>
             </div>
           </div>
         </blockquote>
@@ -1564,7 +1836,7 @@
             <div class="testi-avatar" role="img" aria-label="Portrait of young beneficiary"></div>
             <div>
               <h4>Young Beneficiary</h4>
-              <p class="testi-country">🇬🇭 Ghana Mission</p>
+              <p class="testi-country"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Ghana Mission</p>
             </div>
           </div>
         </blockquote>
@@ -1577,7 +1849,7 @@
             <div class="testi-avatar" role="img" aria-label="Portrait of youth forum participant"></div>
             <div>
               <h4>Youth Forum Participant</h4>
-              <p class="testi-country">🇺🇬 Uganda Mission</p>
+              <p class="testi-country"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Uganda Mission</p>
             </div>
           </div>
         </blockquote>
@@ -1590,7 +1862,7 @@
             <div class="testi-avatar" role="img" aria-label="Portrait of community leader"></div>
             <div>
               <h4>Community Leader</h4>
-              <p class="testi-country">🇨🇮 Côte d'Ivoire Mission</p>
+              <p class="testi-country"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-map-pin"></use></svg> Côte d'Ivoire Mission</p>
             </div>
           </div>
         </blockquote>
@@ -1621,6 +1893,121 @@
 
 
 <!-- ════════════════════════════════════
+     OUR WORK & SDG ALIGNMENT
+════════════════════════════════════ -->
+<section id="sdg" aria-labelledby="sdg-heading">
+  <div class="container">
+    <div class="sdg-layout">
+      
+      <div class="sdg-intro reveal-left">
+        <span class="section-tag">Our Work & Alignment</span>
+        <h2 id="sdg-heading">
+          Our Work Aligns With<br>the Sustainable<br><em>Development Goals</em>
+        </h2>
+        <p class="sdg-lead">
+          At Preshol Global, our commitment to mental health advocacy goes beyond conversations—it is a mission rooted in healing, awareness, and sustainable impact across communities.
+        </p>
+        <p class="sdg-copy">
+          Our work aligns strongly with the United Nations Sustainable Development Goals, particularly in advancing human well-being, promoting dignity, and strengthening resilient communities. Through strategic interventions and grassroots engagement, we contribute to a world where mental wellness is prioritized and every individual has access to support.
+        </p>
+        <div class="sdg-visual reveal">
+          <img src="sdg.jpeg" alt="Preshol Global mental health dialogue illustrating SDG-aligned impact" loading="lazy">
+          <div class="sdg-visual-badge">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-network"></use></svg>
+            SDG Focus
+          </div>
+          <div class="sdg-visual-copy">
+            <strong>Well-being backed by practical community action.</strong>
+            <span>Health, education, equity, and partnership come together in one field-facing mission.</span>
+          </div>
+        </div>
+        <div class="sdg-rail" aria-label="Key alignment areas">
+          <div class="sdg-pill-row">
+            <span class="sdg-pill">SDG 3</span>
+            <span class="sdg-pill">SDG 4</span>
+            <span class="sdg-pill">SDG 10</span>
+            <span class="sdg-pill">SDG 17</span>
+          </div>
+          <p class="sdg-note">
+            <strong>Note:</strong> These four SDGs represent our primary focus areas, though our work intersects with multiple development goals across health, education, equity, and partnership.
+          </p>
+        </div>
+      </div>
+
+      <div class="sdg-grid reveal-right">
+
+        <article class="sdg-card sdg-card-health">
+          <span class="sdg-card-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-brain"></use></svg> SDG 3</span>
+          <h3>Good Health &amp; Well-being</h3>
+          <p>
+            Mental health is at the core of everything we do. Through awareness campaigns, community engagements, and advocacy initiatives, we work to:
+          </p>
+          <ul class="sdg-points">
+            <li>Reduce stigma around mental health challenges</li>
+            <li>Encourage early help-seeking behaviours</li>
+            <li>Promote emotional and psychological well-being</li>
+          </ul>
+          <p class="sdg-card-close">
+            We believe that true health is not only physical but also deeply mental and emotional.
+          </p>
+        </article>
+
+        <article class="sdg-card sdg-card-education">
+          <span class="sdg-card-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-cap"></use></svg> SDG 4</span>
+          <h3>Quality Education</h3>
+          <p>
+            We provide mental health education that is simple, relatable, and practical. By equipping individuals—especially young people—with knowledge, we empower them to:
+          </p>
+          <ul class="sdg-points">
+            <li>Understand their emotions</li>
+            <li>Build resilience</li>
+            <li>Support others within their circles</li>
+          </ul>
+          <p class="sdg-card-close">
+            Education, in this sense, becomes a tool for both prevention and transformation.
+          </p>
+        </article>
+
+        <article class="sdg-card sdg-card-equity">
+          <span class="sdg-card-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-scales"></use></svg> SDG 10</span>
+          <h3>Reduced Inequalities</h3>
+          <p>
+            Mental health care is often inaccessible or overlooked in many communities. Our advocacy focuses on:
+          </p>
+          <ul class="sdg-points">
+            <li>Reaching underserved and grassroots populations</li>
+            <li>Amplifying voices that are often unheard</li>
+            <li>Promoting inclusive access to mental health support</li>
+          </ul>
+          <p class="sdg-card-close">
+            Everyone deserves to be seen, heard, and supported.
+          </p>
+        </article>
+
+        <article class="sdg-card sdg-card-partnership">
+          <span class="sdg-card-tag"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-handshake"></use></svg> SDG 17</span>
+          <h3>Partnerships for the Goals</h3>
+          <p>
+            We recognize that sustainable impact cannot happen in isolation. Through collaborations with organizations, institutions, and community leaders, we:
+          </p>
+          <ul class="sdg-points">
+            <li>Expand the reach of mental health awareness</li>
+            <li>Strengthen advocacy efforts</li>
+            <li>Build a network of shared responsibility for well-being</li>
+          </ul>
+          <p class="sdg-card-close">
+            Together, we create lasting change across communities.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════
      WHAT WE DO
 ════════════════════════════════════ -->
 <section id="whatwedo" aria-labelledby="whatwedo-heading">
@@ -1636,21 +2023,27 @@
         </p>
         <div class="what-list">
           <div class="what-item">
-            <div class="what-icon" aria-hidden="true">🤝</div>
+            <div class="what-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24"><use href="#icon-handshake"></use></svg>
+            </div>
             <div>
               <h4>Non-Profit Mission Interventions</h4>
               <p>Community-based outreach with a focus on sustainable impact. Not temporary relief — lasting transformation for individuals and communities.</p>
             </div>
           </div>
           <div class="what-item">
-            <div class="what-icon" aria-hidden="true">🧠</div>
+            <div class="what-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24"><use href="#icon-brain"></use></svg>
+            </div>
             <div>
               <h4>Mental Health Advocacy</h4>
               <p>Breaking stigma through symposiums, workshops, school engagements, and faith-based conversations. Equipping individuals with tools for mental wellness and self-awareness.</p>
             </div>
           </div>
           <div class="what-item">
-            <div class="what-icon" aria-hidden="true">🌐</div>
+            <div class="what-icon" aria-hidden="true">
+              <svg class="icon" viewBox="0 0 24 24"><use href="#icon-globe"></use></svg>
+            </div>
             <div>
               <h4>Global Opportunity Guidance</h4>
               <p>Educational pathways, professional development, strategic global positioning, and ethical travel advisory. Your background should not limit your future.</p>
@@ -1663,6 +2056,10 @@
         <div class="whatwedo-img" role="img" aria-label="Preshol Global team in the field during a community mission">
         </div>
         <div class="whatwedo-badge" aria-label="15 plus mission trips executed">
+          <div class="whatwedo-badge-top">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-plane"></use></svg>
+            Cross-Border Reach
+          </div>
           <div class="num">15+</div>
           <div class="lbl">Mission Trips Executed</div>
         </div>
@@ -1686,7 +2083,7 @@
         </blockquote>
         <div class="contact-detail">
           <strong>Email</strong>
-          hello@presholGlobal.org
+          info@presholglobal.com
           <strong>WhatsApp</strong>
           Available on request
           <strong>Partnership</strong>
@@ -1811,7 +2208,7 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a href="mailto:presholglobal@gmail.com">presholglobal@gmail.com</a></li>
+          <li><a href="mailto:info@presholglobal.com">info@presholglobal.com</a></li>
           <li><a href="#contact">WhatsApp (on request)</a></li>
           <li><a href="#contact">Partnership Enquiries</a></li>
         </ul>
