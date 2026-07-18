@@ -35,16 +35,43 @@ export async function generateMetadata({
   const description = post.seo?.metaDescription || post.excerpt;
   const ogImageSource = post.seo?.ogImage || post.mainImage;
 
+  const images = ogImageSource
+    ? [
+        {
+          url: urlFor(ogImageSource).width(1200).height(630).fit('crop').url(),
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ]
+    : [
+        {
+          url: '/images/hero/preshol-hero1.jpeg',
+          width: 1280,
+          height: 853,
+          alt: 'Preshol Global — community outreach across Africa',
+        },
+      ];
+
   return {
     title: `${title} | Preshol Global Blog`,
     description,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
+      type: 'article',
+      url: `https://www.presholGlobal.org/blog/${post.slug}`,
+      siteName: 'Preshol Global',
       title,
       description,
-      type: 'article',
       publishedTime: post.publishedAt,
-      images: ogImageSource ? [urlFor(ogImageSource).width(1200).height(630).url()] : undefined,
+      authors: post.author?.name ? [post.author.name] : undefined,
+      images,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: images.map((image) => image.url),
     },
   };
 }

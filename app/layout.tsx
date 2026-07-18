@@ -57,7 +57,14 @@ export const metadata: Metadata = {
     title: "Preshol Global | Healing Hearts. Empowering Minds. Opening Doors.",
     description:
       "Founded by David Ademide Adebanjo, Preshol Global is transforming lives across 7 countries through non-profit mission interventions, mental health advocacy, and global opportunity guidance.",
-    images: ["https://www.presholGlobal.org/og-image.jpg"],
+    images: [
+      {
+        url: "/images/hero/preshol-hero1.jpeg",
+        width: 1280,
+        height: 853,
+        alt: "Preshol Global — community outreach across Africa",
+      },
+    ],
     locale: "en_NG",
     siteName: "Preshol Global",
   },
@@ -66,7 +73,7 @@ export const metadata: Metadata = {
     title: "Preshol Global | Healing Hearts. Empowering Minds. Opening Doors.",
     description:
       "Non-profit transforming lives across Africa through outreach, mental health & global guidance.",
-    images: ["https://www.presholGlobal.org/og-image.jpg"],
+    images: ["/images/hero/preshol-hero1.jpeg"],
   },
   icons: {
     icon: "/favicon.png",

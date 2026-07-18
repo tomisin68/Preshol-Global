@@ -7,11 +7,35 @@ import { postsQuery } from '@/lib/sanity/queries';
 import type { PostListItem } from '@/lib/sanity/types';
 import styles from './page.module.css';
 
+const TITLE = 'Blog | Preshol Global';
+const DESCRIPTION =
+  'Stories, insights, and updates from Preshol Global on mental health advocacy, community outreach, and global opportunity guidance across Africa.';
+
 export const metadata: Metadata = {
-  title: 'Blog | Preshol Global',
-  description:
-    'Stories, insights, and updates from Preshol Global on mental health advocacy, community outreach, and global opportunity guidance across Africa.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/blog' },
+  openGraph: {
+    type: 'website',
+    url: 'https://www.presholGlobal.org/blog',
+    title: TITLE,
+    description: DESCRIPTION,
+    siteName: 'Preshol Global',
+    images: [
+      {
+        url: '/images/hero/preshol-hero1.jpeg',
+        width: 1280,
+        height: 853,
+        alt: 'Preshol Global — community outreach across Africa',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ['/images/hero/preshol-hero1.jpeg'],
+  },
 };
 
 export const revalidate = 60;
