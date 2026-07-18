@@ -50,7 +50,9 @@ export default function Lightbox({ images, currentIndex, onClose, onPrev, onNext
           photo at full viewport size regardless of its rendered thumbnail
           dimensions — keeping that here rather than next/image. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="lightbox-img" id="lightboxImg" src={current?.src ?? ''} alt={current?.alt ?? ''} />
+      {current && (
+        <img className="lightbox-img" id="lightboxImg" src={current.src} alt={current.alt} />
+      )}
       <button className="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo" onClick={onNext}>&#8594;</button>
       <div className="lightbox-caption" id="lightboxCaption">{current?.fullCaption ?? ''}</div>
     </div>
