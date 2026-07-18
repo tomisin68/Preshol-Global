@@ -1,0 +1,9 @@
+# Security contact for Preshol Global
+Contact: mailto:security@presholGlobal.org
+Contact: https://presholGlobal.org/.well-known/security.txt
+Encryption: https://presholGlobal.org/pgp-key.txt
+Acknowledgments: https://presholGlobal.org/hall-of-fame
+Preferred-Languages: en
+Policy: https://presholGlobal.org/security-policy
+Hiring: https://presholGlobal.org/careers
+Expires: 2027-01-01T00:00:00.000Z
