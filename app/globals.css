@@ -382,7 +382,7 @@ ul { list-style:none; }
 }
 .founder-photo-frame img {
   width:100%; height:100%; object-fit:cover;
-  transform:scale(1.55); transform-origin:50% 78%;
+  transform:scale(2.3); transform-origin:50% 26%;
 }
 .founder-photo-badge {
   position:absolute; bottom:-1.1rem; left:.7rem; right:.7rem;
@@ -1318,8 +1318,11 @@ footer {
   .form-row { grid-template-columns:1fr; }
   .stats-row { grid-template-columns:repeat(2,1fr); }
   .hero-btns { flex-direction:column; align-items:flex-start; }
+  .hero-content { padding-bottom:3.5rem; }
+  .hero-dots { bottom:1.25rem; }
 }
 @media (max-width:480px) {
   .gallery-grid { columns:2; }
   .stats-row { grid-template-columns:1fr 1fr; }
+  .hero-content { padding-bottom:4.5rem; }
 }
